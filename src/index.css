@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "SF Pro Text", "SF Pro Display", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  
+  --color-bg: #F0F0E9;
+  --color-surface: #FFFFFF;
+  --color-primary: #BFEA77;
+  --color-primary-light: #DEE004;
+  --color-primary-dark: #60625B;
+  --color-accent: #BFEA77;
+  --color-accent-soft: #F0F0E9;
+  --color-text: #000000;
+  --color-text-soft: #60625B;
+  --color-muted: #9CA3AF;
+  --color-border: #E5E7EB;
+  --color-danger: #F0908A;
+  --color-warning: #F5C97A;
+
+  --radius-card: 24px;
+  --radius-pill: 99px;
+
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+@layer base {
+  :root {
+    --bg: #F0F0E9;
+    --surface: #FFFFFF;
+    --primary: #BFEA77;
+    --accent: #BFEA77;
+    --text: #000000;
+    --border: #E5E7EB;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer components {
+  .semi-card {
+    background-color: var(--surface);
+    border-radius: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  }
+
+  .topo-bg {
+    background: 
+      radial-gradient(at 0% 0%, rgba(191, 234, 119, 0.15) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(96, 98, 91, 0.05) 0px, transparent 50%),
+      linear-gradient(180deg, #F0F0E9 0%, #E5E5E0 100%);
+    position: relative;
+    min-height: 100vh;
+  }
+
+  .topo-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg width='400' height='400' viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 100 Q 100 50 200 100 T 400 100' fill='none' stroke='%23000' stroke-width='1'/%3E%3Cpath d='M0 200 Q 100 150 200 200 T 400 200' fill='none' stroke='%23000' stroke-width='1'/%3E%3Cpath d='M0 300 Q 100 250 200 300 T 400 300' fill='none' stroke='%23000' stroke-width='1'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
